@@ -10,6 +10,7 @@
  * @param name {string: chunkName} - Chunk name. @required
  * @param screening {0; 1} - Screening special chars. Default: 1.
  * @param placeholders {separated string} - Additional data for parsed result chunk. Format: separated string with '::' for pair key-value and '||' between pairs. Default: ''.
+ * @param removeEmptyPlaceholders {0; 1} - Placeholders which have not values to be replaced by will be deleted from parsed chunk if the parameter equals 1. Default: 0.
  * 
  * @link http://code.divandesign.biz/modx/ddgetchunk/1.3
  *
@@ -30,6 +31,11 @@ if (isset($name)){
 		$placeholders = ddTools::explodeAssoc($placeholders);
 		//Парсим
 		$str = ddTools::parseText($str, $placeholders);
+	}
+
+	//Удаляем пустые плэйсхолдеры, если нужно
+	if (isset($removeEmptyPlaceholders) && $removeEmptyPlaceholders == '1'){
+		$str = preg_replace('/\[\+\S+\+\]/', '', $str);
 	}
 	
 	//Окончательно парсим
