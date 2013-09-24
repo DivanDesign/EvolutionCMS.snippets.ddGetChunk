@@ -18,7 +18,7 @@
  * http://www.DivanDesign.biz
  */
 
-if (isset($name)){
+if (!empty($name)){
 	//Подключаем modx.ddTools
 	require_once $modx->config['base_path'].'assets/snippets/ddTools/modx.ddtools.class.php';
 
@@ -26,7 +26,7 @@ if (isset($name)){
 	$str = $modx->getChunk($name);
 	
 	//Если заданы дополнительные данные для парса
-	if (isset($placeholders)){
+	if (!empty($placeholders)){
 		//Разбиваем их
 		$placeholders = ddTools::explodeAssoc($placeholders);
 		//Парсим
