@@ -23,29 +23,29 @@ if (!empty($name)){
 	require_once $modx->config['base_path'].'assets/snippets/ddTools/modx.ddtools.class.php';
 
 	//Получаем чанк
-	$str = $modx->getChunk($name);
+	$result = $modx->getChunk($name);
 	
 	//Если заданы дополнительные данные для парса
 	if (!empty($placeholders)){
 		//Разбиваем их
 		$placeholders = ddTools::explodeAssoc($placeholders);
 		//Парсим
-		$str = ddTools::parseText($str, $placeholders);
+		$result = ddTools::parseText($result, $placeholders);
 	}
 
 	//Удаляем пустые плэйсхолдеры, если нужно
 	if (isset($removeEmptyPlaceholders) && $removeEmptyPlaceholders == '1'){
-		$str = preg_replace('/\[\+\S+\+\]/', '', $str);
+		$result = preg_replace('/\[\+\S+\+\]/', '', $result);
 	}
 	
 	//Окончательно парсим
-	$str = ddTools::parseSource($str);
+	$result = ddTools::parseSource($result);
 	
 	//Экранируем сиволы, если нужно
 	if (!isset($screening) || $screening == '1'){
-		$str = ddTools::screening($str);
+		$result = ddTools::screening($result);
 	}
 
-	return $str;
+	return $result;
 }
 ?>
