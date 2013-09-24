@@ -1,7 +1,7 @@
 <?php
 /**
  * ddGetChunk.php
- * @version 1.3 (2012-03-21)
+ * @version 1.4 (2013-09-24)
  *
  * Snippet gets the chunk contents by its name. For example, it useful to get chunks in js code.
  * 
@@ -12,9 +12,9 @@
  * @param placeholders {separated string} - Additional data for parsed result chunk. Format: separated string with '::' for pair key-value and '||' between pairs. Default: ''.
  * @param removeEmptyPlaceholders {0; 1} - Placeholders which have not values to be replaced by will be deleted from parsed chunk if the parameter equals 1. Default: 0.
  * 
- * @link http://code.divandesign.biz/modx/ddgetchunk/1.3
+ * @link http://code.divandesign.biz/modx/ddgetchunk/1.4
  *
- * @copyright 2012, DivanDesign
+ * @copyright 2013, DivanDesign
  * http://www.DivanDesign.biz
  */
 
