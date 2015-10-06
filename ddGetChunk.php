@@ -10,7 +10,7 @@
  * @param $name {string: chunkName} - Chunk name. @required
  * @param $placeholders {separated string} - Additional data for parsed result chunk. Format: separated string with '::' for pair key-value and '||' between pairs. Default: ''.
  * @param $removeEmptyPlaceholders {0|1} - Placeholders which have not values to be replaced by will be deleted from parsed chunk if the parameter equals 1. Default: 0.
- * @param $escaping {0|1} - Escaping special chars (for js). Default: 1.
+ * @param $escaping {0|1} - Escaping special chars (for js). Default: 0.
  * 
  * @link http://code.divandesign.biz/modx/ddgetchunk/1.4
  * 
@@ -42,7 +42,7 @@ if (!empty($name)){
 	$result = ddTools::parseSource($result);
 	
 	//Экранируем сиволы, если нужно
-	if (!isset($escaping) || $escaping == '1'){
+	if (isset($escaping) && $escaping == '1'){
 		$result = ddTools::screening($result);
 	}
 	
