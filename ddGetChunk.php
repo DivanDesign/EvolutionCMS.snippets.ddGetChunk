@@ -5,7 +5,8 @@
  * 
  * @desc Snippet gets the chunk contents by its name. For example, it useful to get chunks inside js code.
  * 
- * @uses MODXEvo.library.ddTools >= 0.12.
+ * @uses PHP >= 5.4.
+ * @uses MODXEvo.library.ddTools >= 0.16.2.
  * 
  * @param $name {string_chunkName} — Chunk name. @required
  * @param $placeholders {string_separated} — Additional data for parsed result chunk. Format: separated string with '::' for pair key-value and '||' between pairs. Default: ''.
@@ -19,7 +20,7 @@
 
 if (!empty($name)){
 	//Подключаем modx.ddTools
-	require_once $modx->getConfig('base_path').'assets/snippets/ddTools/modx.ddtools.class.php';
+	require_once $modx->getConfig('base_path').'assets/libs/ddTools/modx.ddtools.class.php';
 	
 	//Получаем чанк
 	$result = $modx->getChunk($name);
@@ -28,17 +29,17 @@ if (!empty($name)){
 	if (!empty($placeholders)){
 		//Разбиваем их
 		$placeholders = ddTools::explodeAssoc($placeholders);
-		//Парсим
-		$result = ddTools::parseText($result, $placeholders);
+	}else{
+		$placeholders = [];
 	}
 	
-	//Удаляем пустые плэйсхолдеры, если нужно
-	if (
-		isset($removeEmptyPlaceholders) &&
-		$removeEmptyPlaceholders == '1'
-	){
-		$result = preg_replace('/\[\+\S+\+\]/', '', $result);
-	}
+	//Парсим
+	$result = ddTools::parseText([
+		'text' => $result,
+		'data' => $placeholders,
+		//Удаляем пустые плэйсхолдеры, если нужно
+		'removeEmptyPlaceholders' => isset($removeEmptyPlaceholders) &&	$removeEmptyPlaceholders == '1' ? true : false
+	]);
 	
 	//Окончательно парсим
 	$result = ddTools::parseSource($result);
@@ -48,7 +49,7 @@ if (!empty($name)){
 		isset($escaping) &&
 		$escaping == '1'
 	){
-		$result = ddTools::screening($result);
+		$result = ddTools::escapeForJS($result);
 	}
 	
 	return $result;
