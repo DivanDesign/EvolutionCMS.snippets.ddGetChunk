@@ -6,9 +6,10 @@
  * @desc Snippet gets the chunk contents by its name. For example, it useful to get chunks inside js code.
  * 
  * @uses PHP >= 5.4.
+ * @uses MODXEvo >= 1.1.
  * @uses MODXEvo.library.ddTools >= 0.16.2.
  * 
- * @param $name {string_chunkName} — Chunk name. @required
+ * @param $name {string_chunkName|string} — Chunk name or code via “@CODE:” prefix. @required
  * @param $placeholders {string_queryFormated} — Additional data as query string (https://en.wikipedia.org/wiki/Query_string) has to be passed into the chunk. E. g. “pladeholder1=value1&pagetitle=My awesome pagetitle!”. Default: ''.
  * @param $removeEmptyPlaceholders {0|1} — Placeholders which have not values to be replaced by will be deleted from parsed chunk if the parameter equals 1. Default: 0.
  * @param $escapeResultForJS {0|1} — Escaping special chars (for js). Default: 0.
@@ -28,7 +29,7 @@ if (!empty($name)){
 	]));
 	
 	//Получаем чанк
-	$result = $modx->getChunk($name);
+	$result = $modx->getTpl($name);
 	
 	//Если переданы дополнительные данные
 	if (!empty($placeholders)){
