@@ -1,7 +1,7 @@
 <?php
 /**
  * ddGetChunk
- * @version 2.0 (2015-10-06)
+ * @version 2.1 (2016-12-29)
  * 
  * @desc Snippet gets the chunk contents by its name. For example, it useful to get chunks inside js code.
  * 
@@ -14,9 +14,9 @@
  * @param $removeEmptyPlaceholders {0|1} — Placeholders which have not values to be replaced by will be deleted from parsed chunk if the parameter equals 1. Default: 0.
  * @param $escapeResultForJS {0|1} — Escaping special chars (for js). Default: 0.
  * 
- * @link http://code.divandesign.biz/modx/ddgetchunk/2.0
+ * @link http://code.divandesign.biz/modx/ddgetchunk/2.1
  * 
- * @copyright 2009–2015 DivanDesign {@link http://www.DivanDesign.biz }
+ * @copyright 2009–2016 DivanDesign {@link http://www.DivanDesign.biz }
  */
 
 if (!empty($name)){
