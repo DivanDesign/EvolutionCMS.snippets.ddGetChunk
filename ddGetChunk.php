@@ -11,7 +11,7 @@
  * @param $name {string_chunkName} — Chunk name. @required
  * @param $placeholders {string_separated} — Additional data for parsed result chunk. Format: separated string with '::' for pair key-value and '||' between pairs. Default: ''.
  * @param $removeEmptyPlaceholders {0|1} — Placeholders which have not values to be replaced by will be deleted from parsed chunk if the parameter equals 1. Default: 0.
- * @param $escaping {0|1} — Escaping special chars (for js). Default: 0.
+ * @param $escapeResultForJS {0|1} — Escaping special chars (for js). Default: 0.
  * 
  * @link http://code.divandesign.biz/modx/ddgetchunk/2.0
  * 
@@ -21,6 +21,11 @@
 if (!empty($name)){
 	//Подключаем modx.ddTools
 	require_once $modx->getConfig('base_path').'assets/libs/ddTools/modx.ddtools.class.php';
+	
+	//Для обратной совместимости
+	extract(ddTools::verifyRenamedParams($params, [
+		'escapeResultForJS' => 'escaping'
+	]));
 	
 	//Получаем чанк
 	$result = $modx->getChunk($name);
@@ -46,8 +51,8 @@ if (!empty($name)){
 	
 	//Экранируем сиволы, если нужно
 	if (
-		isset($escaping) &&
-		$escaping == '1'
+		isset($escapeResultForJS) &&
+		$escapeResultForJS == '1'
 	){
 		$result = ddTools::escapeForJS($result);
 	}
