@@ -7,10 +7,10 @@
  * 
  * @uses PHP >= 5.4.
  * @uses MODXEvo >= 1.1.
- * @uses MODXEvo.library.ddTools >= 0.16.2.
+ * @uses MODXEvo.library.ddTools >= 0.18.
  * 
  * @param $name {string_chunkName|string} — Chunk name or code via “@CODE:” prefix. @required
- * @param $placeholders {string_queryFormated} — Additional data as query string (https://en.wikipedia.org/wiki/Query_string) has to be passed into the chunk. E. g. “pladeholder1=value1&pagetitle=My awesome pagetitle!”. Default: ''.
+ * @param $placeholders {stirng_json|string_queryFormated} — Additional data as JSON (https://en.wikipedia.org/wiki/JSON) or Query string (https://en.wikipedia.org/wiki/Query_string) has to be passed into the chunk. E. g. `{"width": 800, "height": 600}` or `width=800&height=600`. Default: ''.
  * @param $removeEmptyPlaceholders {0|1} — Placeholders which have not values to be replaced by will be deleted from parsed chunk if the parameter equals 1. Default: 0.
  * @param $escapeResultForJS {0|1} — Escaping special chars (for js). Default: 0.
  * 
@@ -33,16 +33,7 @@ if (!empty($name)){
 	
 	//Если переданы дополнительные данные
 	if (!empty($placeholders)){
-		//If “=” exists
-		if (strpos($placeholders, '=') !== false){
-			//Parse a query string
-			parse_str($placeholders, $placeholders);
-		//Backward compatibility
-		}else{
-			//The old format
-			$placeholders = ddTools::explodeAssoc($placeholders);
-			$modx->logEvent(1, 2, '<p>String separated by “::” && “||” in the “placeholders” parameter is deprecated. Use a <a href="https://en.wikipedia.org/wiki/Query_string)">query string</a>.</p><p>The snippet has been called in the document with id '.$modx->documentIdentifier.'.</p>', $modx->currentSnippet);
-		}
+		$placeholders = ddTools::encodedStringToArray($placeholders);
 	}else{
 		$placeholders = [];
 	}
