@@ -7,7 +7,7 @@
  * 
  * @uses PHP >= 5.4.
  * @uses MODXEvo >= 1.1.
- * @uses MODXEvo.library.ddTools >= 0.18.
+ * @uses MODXEvo.libraries.ddTools >= 0.18.
  * 
  * @param $name {string_chunkName|string} — Chunk name or code via “@CODE:” prefix. @required
  * @param $placeholders {stirng_json|string_queryFormated} — Additional data as JSON (https://en.wikipedia.org/wiki/JSON) or Query string (https://en.wikipedia.org/wiki/Query_string) has to be passed into the chunk. E. g. `{"width": 800, "height": 600}` or `width=800&height=600`. Default: ''.
@@ -24,9 +24,12 @@ if (!empty($name)){
 	require_once $modx->getConfig('base_path').'assets/libs/ddTools/modx.ddtools.class.php';
 	
 	//Для обратной совместимости
-	extract(ddTools::verifyRenamedParams($params, [
-		'escapeResultForJS' => 'escaping'
-	]));
+	extract(ddTools::verifyRenamedParams(
+		$params,
+		[
+			'escapeResultForJS' => 'escaping'
+		]
+	));
 	
 	//Получаем чанк
 	$result = $modx->getTpl($name);
