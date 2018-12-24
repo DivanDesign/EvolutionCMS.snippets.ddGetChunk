@@ -21,7 +21,7 @@
 
 if (!empty($name)){
 	//Подключаем modx.ddTools
-	require_once $modx->getConfig('base_path').'assets/libs/ddTools/modx.ddtools.class.php';
+	require_once($modx->getConfig('base_path').'assets/libs/ddTools/modx.ddtools.class.php');
 	
 	//Для обратной совместимости
 	extract(ddTools::verifyRenamedParams(
