@@ -19,6 +19,9 @@
  * @copyright 2009–2017 DD Group {@link https://www.DivanDesign.biz }
  */
 
+//The snippet must return an empty string even if result is absent
+$snippetResult = '';
+
 if (!empty($name)){
 	//Include (MODX)EvolutionCMS.libraries.ddTools
 	require_once(
@@ -35,7 +38,7 @@ if (!empty($name)){
 	));
 	
 	//Получаем чанк
-	$result = $modx->getTpl($name);
+	$snippetResult = $modx->getTpl($name);
 	
 	//Если переданы дополнительные данные
 	if (!empty($placeholders)){
@@ -45,8 +48,8 @@ if (!empty($name)){
 	}
 	
 	//Парсим
-	$result = \ddTools::parseText([
-		'text' => $result,
+	$snippetResult = \ddTools::parseText([
+		'text' => $snippetResult,
 		'data' => $placeholders,
 		//Удаляем пустые плэйсхолдеры, если нужно
 		'removeEmptyPlaceholders' =>
@@ -59,16 +62,16 @@ if (!empty($name)){
 	]);
 	
 	//Окончательно парсим
-	$result = \ddTools::parseSource($result);
+	$snippetResult = \ddTools::parseSource($snippetResult);
 	
 	//Экранируем сиволы, если нужно
 	if (
 		isset($escapeResultForJS) &&
 		$escapeResultForJS == '1'
 	){
-		$result = \ddTools::escapeForJS($result);
+		$snippetResult = \ddTools::escapeForJS($snippetResult);
 	}
-	
-	return $result;
 }
+
+return $snippetResult;
 ?>
