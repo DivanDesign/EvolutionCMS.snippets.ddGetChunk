@@ -1,0 +1,25 @@
+{
+	"name": "dd/evolutioncms-snippets-ddgetchunk",
+	"type": "modxevo-snippet",
+	"version": "2.2.0",
+	"description": "Snippet gets the chunk contents by its name. For example, it useful to get chunks inside JS code.",
+	"keywords": [
+		"modx",
+		"modx evo",
+		"modx evolution",
+		"evo",
+		"evo cms",
+		"evolutioncms",
+		"evolution cms",
+		"dd group",
+		"dd studio",
+		"divandesign",
+		"ddgetchunk",
+		"get chunk",
+		"parse chunk"
+	],
+	"require": {
+		"php": ">=5.4.0",
+		"dd/modxevo-library-ddtools": ">=0.18.0"
+	}
+}
