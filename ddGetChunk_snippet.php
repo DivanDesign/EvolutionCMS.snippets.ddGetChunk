@@ -1,13 +1,13 @@
 <?php
 /**
  * ddGetChunk
- * @version 2.2 (2017-03-01)
+ * @version 2.2.1 (2020-05-02)
  * 
  * @see README.md
  * 
  * @link https://code.divandesign.biz/modx/ddgetchunk
  * 
- * @copyright 2009–2017 DD Group {@link https://www.DivanDesign.biz }
+ * @copyright 2009–2020 DD Group {@link https://DivanDesign.biz }
  */
 
 //The snippet must return an empty string even if result is absent

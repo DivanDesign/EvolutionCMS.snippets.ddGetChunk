@@ -1,6 +1,16 @@
 # (MODX)EvolutionCMS.snippets.ddGetChunk changelog
 
 
+## Version 2.2.1 (2020-05-02)
+* \* The snippet result will be returned in anyway (empty string for empty result).
+* \+ Composer.json.
+* \+ README.
+* \+ README_ru.
+* \+ CHANGELOG.
+* \+ CHANGELOG_ru.
+* \* Refactoring, small shanges, code style.
+
+
 ## Version 2.2 (2017-03-01)
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.18 is required.
 * \+ Added [JSON](https://en.wikipedia.org/wiki/JSON) support for the `placeholders` parameter.

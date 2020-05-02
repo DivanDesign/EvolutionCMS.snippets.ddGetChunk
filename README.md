@@ -23,7 +23,7 @@ Also it can:
 Elements → Snippets: Create a new snippet with the following data:
 
 1. Snippet name: `ddGetChunk`.
-2. Description: `<b>2.2</b> Snippet gets the chunk contents by its name. For example, it useful to get chunks inside JS code.`.
+2. Description: `<b>2.2.1</b> Snippet gets the chunk contents by its name. For example, it useful to get chunks inside JS code.`.
 3. Category: `Core`.
 4. Parse DocBlock: `no`.
 5. Snippet code (php): Insert content of the `ddGetChunk_snippet.php` file from the archive.
