@@ -1,7 +1,15 @@
 # (MODX)EvolutionCMS.snippets.ddGetChunk changelog
 
 
-## Version 2.2.1 (2020-05-02)
+## Версия 2.2.2 (2020-06-22)
+* \* Внимание! Требуется (MODX)Evolution.libraries.ddTools >= 0.40.1 (не тестировался с более ранними версиями).
+* \* Composer.json:
+	* \+ `homepage`
+	* \+ `authors`.
+	* \* `require` → `dd/evolutioncms-libraries-ddtools`: Переименована из `dd/modxevo-library-ddtools`.
+
+
+## Версия 2.2.1 (2020-05-02)
 * \* Сниппет возвращает реузльат в любом случае (пустая строка, если результат пустой).
 * \+ Composer.json.
 * \+ README.

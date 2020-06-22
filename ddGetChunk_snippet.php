@@ -1,7 +1,7 @@
 <?php
 /**
  * ddGetChunk
- * @version 2.2.1 (2020-05-02)
+ * @version 2.2.2 (2020-06-22)
  * 
  * @see README.md
  * 
@@ -21,12 +21,12 @@ if (!empty($name)){
 	);
 	
 	//Для обратной совместимости
-	extract(\ddTools::verifyRenamedParams(
-		$params,
-		[
+	extract(\ddTools::verifyRenamedParams([
+		'params' => $params,
+		'compliance' => [
 			'escapeResultForJS' => 'escaping'
 		]
-	));
+	]));
 	
 	//Получаем чанк
 	$snippetResult = $modx->getTpl($name);
