@@ -21,12 +21,12 @@ if (!empty($name)){
 	);
 	
 	//Для обратной совместимости
-	extract(\ddTools::verifyRenamedParams(
-		$params,
-		[
+	extract(\ddTools::verifyRenamedParams([
+		'params' => $params,
+		'compliance' => [
 			'escapeResultForJS' => 'escaping'
 		]
-	));
+	]));
 	
 	//Получаем чанк
 	$snippetResult = $modx->getTpl($name);
