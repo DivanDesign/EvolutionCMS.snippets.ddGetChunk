@@ -1,7 +1,7 @@
 <?php
 /**
  * ddGetChunk
- * @version 2.2.1 (2020-05-02)
+ * @version 2.2.2 (2020-06-22)
  * 
  * @see README.md
  * 
