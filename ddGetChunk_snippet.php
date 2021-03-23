@@ -10,6 +10,12 @@
  * @copyright 2009–2020 DD Group {@link https://DivanDesign.biz }
  */
 
+//Include (MODX)EvolutionCMS.libraries.ddTools
+require_once(
+	$modx->getConfig('base_path') .
+	'assets/libs/ddTools/modx.ddtools.class.php'
+);
+
 //The snippet must return an empty string even if result is absent
 $snippetResult = '';
 
@@ -37,12 +43,6 @@ $params = \DDTools\ObjectTools::extend([
 
 
 if (!empty($params->name)){
-	//Include (MODX)EvolutionCMS.libraries.ddTools
-	require_once(
-		$modx->getConfig('base_path') .
-		'assets/libs/ddTools/modx.ddtools.class.php'
-	);
-	
 	//Получаем чанк
 	$snippetResult = $modx->getTpl($params->name);
 	
