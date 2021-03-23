@@ -16,57 +16,8 @@ require_once(
 	'assets/libs/ddTools/modx.ddtools.class.php'
 );
 
-//The snippet must return an empty string even if result is absent
-$snippetResult = '';
-
-//Backward compatibility
-$params = \ddTools::verifyRenamedParams([
-	'params' => $params,
-	'compliance' => [
-		'escapeResultForJS' => 'escaping'
-	],
-	'returnCorrectedOnly' => false
+return \DDTools\Snippet::runSnippet([
+	'name' => 'ddGetChunk',
+	'params' => $params
 ]);
-
-$params = \DDTools\ObjectTools::extend([
-	'objects' => [
-		//Defaults
-		(object) [
-			'name' => '',
-			'placeholders' => [],
-			'removeEmptyPlaceholders' => false,
-			'escapeResultForJS' => false
-		],
-		$params
-	]
-]);
-
-
-if (!empty($params->name)){
-	//Получаем чанк
-	$snippetResult = $modx->getTpl($params->name);
-	
-	//Если переданы дополнительные данные
-	if (is_string($params->placeholders)){
-		$params->placeholders = \ddTools::encodedStringToArray($params->placeholders);
-	}
-	
-	//Парсим
-	$snippetResult = \ddTools::parseText([
-		'text' => $snippetResult,
-		'data' => $params->placeholders,
-		//Удаляем пустые плэйсхолдеры, если нужно
-		'removeEmptyPlaceholders' => $params->removeEmptyPlaceholders
-	]);
-	
-	//Окончательно парсим
-	$snippetResult = \ddTools::parseSource($snippetResult);
-	
-	//Экранируем сиволы, если нужно
-	if ($params->escapeResultForJS){
-		$snippetResult = \ddTools::escapeForJS($snippetResult);
-	}
-}
-
-return $snippetResult;
 ?>
