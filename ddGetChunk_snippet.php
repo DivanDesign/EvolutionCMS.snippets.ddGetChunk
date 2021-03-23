@@ -13,53 +13,57 @@
 //The snippet must return an empty string even if result is absent
 $snippetResult = '';
 
-if (!empty($name)){
+//Backward compatibility
+$params = \ddTools::verifyRenamedParams([
+	'params' => $params,
+	'compliance' => [
+		'escapeResultForJS' => 'escaping'
+	],
+	'returnCorrectedOnly' => false
+]);
+
+$params = \DDTools\ObjectTools::extend([
+	'objects' => [
+		//Defaults
+		(object) [
+			'name' => '',
+			'placeholders' => [],
+			'removeEmptyPlaceholders' => false,
+			'escapeResultForJS' => false
+		],
+		$params
+	]
+]);
+
+
+if (!empty($params->name)){
 	//Include (MODX)EvolutionCMS.libraries.ddTools
 	require_once(
 		$modx->getConfig('base_path') .
 		'assets/libs/ddTools/modx.ddtools.class.php'
 	);
 	
-	//Для обратной совместимости
-	extract(\ddTools::verifyRenamedParams([
-		'params' => $params,
-		'compliance' => [
-			'escapeResultForJS' => 'escaping'
-		]
-	]));
-	
 	//Получаем чанк
-	$snippetResult = $modx->getTpl($name);
+	$snippetResult = $modx->getTpl($params->name);
 	
 	//Если переданы дополнительные данные
-	if (!empty($placeholders)){
-		$placeholders = \ddTools::encodedStringToArray($placeholders);
-	}else{
-		$placeholders = [];
+	if (is_string($params->placeholders)){
+		$params->placeholders = \ddTools::encodedStringToArray($params->placeholders);
 	}
 	
 	//Парсим
 	$snippetResult = \ddTools::parseText([
 		'text' => $snippetResult,
-		'data' => $placeholders,
+		'data' => $params->placeholders,
 		//Удаляем пустые плэйсхолдеры, если нужно
-		'removeEmptyPlaceholders' =>
-			(
-				isset($removeEmptyPlaceholders) &&
-				$removeEmptyPlaceholders == '1'
-			) ?
-			true :
-			false
+		'removeEmptyPlaceholders' => $params->removeEmptyPlaceholders
 	]);
 	
 	//Окончательно парсим
 	$snippetResult = \ddTools::parseSource($snippetResult);
 	
 	//Экранируем сиволы, если нужно
-	if (
-		isset($escapeResultForJS) &&
-		$escapeResultForJS == '1'
-	){
+	if ($params->escapeResultForJS){
 		$snippetResult = \ddTools::escapeForJS($snippetResult);
 	}
 }
