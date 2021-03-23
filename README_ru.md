@@ -51,6 +51,7 @@
 		Вложенные объекты и массивы также поддерживаются: `some[a]=one&some[b]=two` => `[+some.a+]`, `[+some.b+]`; `some[]=one&some[]=two` => `[+some.0+]`, `[some.1]`.
 	* Допустимые значения:
 		* `stringJsonObject` — как [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `stringHjsonObject` — как [HJSON](https://hjson.github.io/)
 		* `stringQueryFormated` — как [Query string](https://en.wikipedia.org/wiki/Query_string)
 	* Значение по умолчанию: —
 	

@@ -20,7 +20,7 @@ class Snippet extends \DDTools\Snippet {
 		
 	/**
 	 * prepareParams
-	 * @version 1.0 (2021-03-23)
+	 * @version 1.1 (2021-03-23)
 	 *
 	 * @param $params {stdClass|arrayAssociative|stringJsonObject|stringQueryFormatted}
 	 *
@@ -32,7 +32,10 @@ class Snippet extends \DDTools\Snippet {
 		
 		//Если переданы дополнительные данные
 		if (is_string($this->params->placeholders)){
-			$this->params->placeholders = \ddTools::encodedStringToArray($this->params->placeholders);
+			$this->params->placeholders = \DDTools\ObjectTools::convertType([
+				'object' => $this->params->placeholders,
+				'type' => 'objectArray'
+			]);;
 		}
 	}
 	
