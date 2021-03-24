@@ -1,13 +1,13 @@
 <?php
 /**
  * ddGetChunk
- * @version 2.2.2 (2020-06-22)
+ * @version 2.3 (2021-03-24)
  * 
  * @see README.md
  * 
  * @link https://code.divandesign.biz/modx/ddgetchunk
  * 
- * @copyright 2009–2020 DD Group {@link https://DivanDesign.biz }
+ * @copyright 2009–2021 DD Group {@link https://DivanDesign.biz }
  */
 
 //Include (MODX)EvolutionCMS.libraries.ddTools

@@ -1,6 +1,14 @@
 # (MODX)EvolutionCMS.snippets.ddGetChunk changelog
 
 
+## Версия 2.3 (2021-03-24)
+* \* Внимание! Требуется PHP >= 5.6.
+* \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.47.
+* \+ Запустить сниппет без DB и eval можно через `\DDTools\Snippet::runSnippet`.
+* \+ Параметры → `placeholders`: Добавлена поддержка [HJSON](https://hjson.github.io/).
+* \+ `\ddGetChunk\Snippet`: Новый класс. Весь код сниппета перенесён туда.
+
+
 ## Версия 2.2.2 (2020-06-22)
 * \* Внимание! Требуется (MODX)Evolution.libraries.ddTools >= 0.40.1 (не тестировался с более ранними версиями).
 * \* Composer.json:
