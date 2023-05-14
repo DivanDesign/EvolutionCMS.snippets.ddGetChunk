@@ -97,6 +97,8 @@ require_once(
 
 ## Examples
 
+_All examples are written using [HJSON](https://hjson.github.io/) for the `placeholders` parameter, but if you want you can use vanilla JSON instead._
+
 
 ### Get content of the form into JS code
 
@@ -116,8 +118,8 @@ require_once(
 [[ddGetChunk?
 	&name=`someChunk`
 	&placeholders=`{
-		"id": "33",
-		"orderBy": "someTv ASC, pub_date DESC"
+		id: 33
+		orderBy: "someTv ASC, pub_date DESC"
 	}`
 ]]
 ```

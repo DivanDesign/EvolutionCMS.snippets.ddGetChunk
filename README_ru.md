@@ -97,6 +97,8 @@ require_once(
 
 ## Примеры
 
+_Все примеры написаны с использованием [HJSON](https://hjson.github.io/) в параметре `placeholders`, но вместо него можно также использвоать обычный JSON._
+
 
 ### Получение содержимого формы в JS
 
@@ -116,8 +118,8 @@ require_once(
 [[ddGetChunk?
 	&name=`someChunk`
 	&placeholders=`{
-		"id": "33",
-		"orderBy": "someTv ASC, pub_date DESC"
+		id: 33
+		orderBy: "someTv ASC, pub_date DESC"
 	}`
 ]]
 ```
