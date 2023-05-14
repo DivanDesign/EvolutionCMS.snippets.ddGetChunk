@@ -15,13 +15,10 @@ Also it can:
 * [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.60
 
 
-## Documentation
+## Installation
 
 
-### Installation
-
-
-#### 1. Elements → Snippets: Create a new snippet with the following data
+### 1. Elements → Snippets: Create a new snippet with the following data
 
 1. Snippet name: `ddGetChunk`.
 2. Description: `<b>2.3</b> Snippet gets the chunk contents by its name. For example, it useful to get chunks inside JS code.`.
@@ -30,13 +27,13 @@ Also it can:
 5. Snippet code (php): Insert content of the `ddGetChunk_snippet.php` file from the archive.
 
 
-#### 2. Elements → Manage Files
+### 2. Elements → Manage Files
 
 1. Create a new folder `assets/snippets/ddGetChunk/`.
 2. Extract the archive to the folder (except `ddGetChunk_snippet.php`).
 
 
-### Parameters description
+## Parameters description
 
 * `name`
 	* Desctription: Chunk name or code via `@CODE:` prefix.
@@ -70,10 +67,10 @@ Also it can:
 	* Default value: `0`
 
 
-### Examples
+## Examples
 
 
-#### Get content of the form into JS code
+### Get content of the form into JS code
 
 ```html
 <script>
@@ -85,7 +82,7 @@ Also it can:
 ```
 
 
-#### Get chunk with Ditto and send necessary additional data into it
+### Get chunk with Ditto and send necessary additional data into it
 
 ```
 [[ddGetChunk?
@@ -113,7 +110,7 @@ Code of `someChunk`:
 ```
 
 
-#### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
+### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
 
 ```php
 \DDTools\Snippet::runSnippet([
