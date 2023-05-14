@@ -2,7 +2,7 @@
 
 
 ## Версия 2.4 (2023-05-14)
-* \+ Parameters → `placeholders`: Can also be set as a native PHP object/array.
+* \+ Параметры → `placeholders`: Также может быть задан, как нативный PHP объект/массив.
 * \* `\ddTools::getTpl` используется вместо `$modx->getTpl` (стало чуть меньше багов).
 * \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.60.
 
