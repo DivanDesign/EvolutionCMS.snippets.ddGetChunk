@@ -15,30 +15,13 @@ class Snippet extends \DDTools\Snippet {
 		
 		$renamedParamsCompliance = [
 			'escapeResultForJS' => 'escaping'
+		],
+		
+		$paramsTypes = [
+			'placeholders' => 'objectArray',
 		]
 	;
 		
-	/**
-	 * prepareParams
-	 * @version 1.1 (2021-03-23)
-	 *
-	 * @param $params {stdClass|arrayAssociative|stringJsonObject|stringQueryFormatted}
-	 *
-	 * @return {void}
-	 */
-	protected function prepareParams($params = []){
-		//Call base method
-		parent::prepareParams($params);
-		
-		//Если переданы дополнительные данные
-		if (is_string($this->params->placeholders)){
-			$this->params->placeholders = \DDTools\ObjectTools::convertType([
-				'object' => $this->params->placeholders,
-				'type' => 'objectArray'
-			]);;
-		}
-	}
-	
 	/**
 	 * run
 	 * @version 1.0.1 (2023-05-14)
