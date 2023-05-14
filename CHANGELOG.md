@@ -1,6 +1,12 @@
 # (MODX)EvolutionCMS.snippets.ddGetChunk changelog
 
 
+## Version 2.4 (2023-05-14)
+* \+ Parameters → `placeholders`: Can also be set as a native PHP object/array.
+* \* `\ddTools::getTpl` is used instead of `$modx->getTpl` (means a bit less bugs).
+* \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.60 is required.
+
+
 ## Version 2.3 (2021-03-24)
 * \* Attention! PHP >= 5.6 is required.
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.47 is required.

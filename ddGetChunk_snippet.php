@@ -1,13 +1,13 @@
 <?php
 /**
  * ddGetChunk
- * @version 2.3 (2021-03-24)
+ * @version 2.4 (2023-05-14)
  * 
  * @see README.md
  * 
  * @link https://code.divandesign.ru/modx/ddgetchunk
  * 
- * @copyright 2009–2021 Ronef {@link https://Ronef.ru }
+ * @copyright 2009–2023 Ronef {@link https://Ronef.ru }
  */
 
 //Include (MODX)EvolutionCMS.libraries.ddTools

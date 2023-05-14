@@ -3,7 +3,7 @@ namespace ddGetChunk;
 
 class Snippet extends \DDTools\Snippet {
 	protected
-		$version = '2.3.0',
+		$version = '2.4.0',
 		
 		$params = [
 			//Defaults
