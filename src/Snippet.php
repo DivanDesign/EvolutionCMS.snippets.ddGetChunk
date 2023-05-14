@@ -3,7 +3,7 @@ namespace ddGetChunk;
 
 class Snippet extends \DDTools\Snippet {
 	protected
-		$version = '2.3.0',
+		$version = '2.4.0',
 		
 		$params = [
 			//Defaults
@@ -15,33 +15,16 @@ class Snippet extends \DDTools\Snippet {
 		
 		$renamedParamsCompliance = [
 			'escapeResultForJS' => 'escaping'
+		],
+		
+		$paramsTypes = [
+			'placeholders' => 'objectArray',
 		]
 	;
 		
 	/**
-	 * prepareParams
-	 * @version 1.1 (2021-03-23)
-	 *
-	 * @param $params {stdClass|arrayAssociative|stringJsonObject|stringQueryFormatted}
-	 *
-	 * @return {void}
-	 */
-	protected function prepareParams($params = []){
-		//Call base method
-		parent::prepareParams($params);
-		
-		//Если переданы дополнительные данные
-		if (is_string($this->params->placeholders)){
-			$this->params->placeholders = \DDTools\ObjectTools::convertType([
-				'object' => $this->params->placeholders,
-				'type' => 'objectArray'
-			]);;
-		}
-	}
-	
-	/**
 	 * run
-	 * @version 1.0 (2021-03-23)
+	 * @version 1.0.1 (2023-05-14)
 	 * 
 	 * @return {string}
 	 */
@@ -50,7 +33,7 @@ class Snippet extends \DDTools\Snippet {
 		
 		if (!empty($this->params->name)){
 			//Получаем чанк
-			$result = \ddTools::$modx->getTpl($this->params->name);
+			$result = \ddTools::getTpl($this->params->name);
 			
 			//Парсим
 			$result = \ddTools::parseText([
