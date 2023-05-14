@@ -49,7 +49,7 @@
 	* Допустимые значения:
 		* `stringJsonObject` — как [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringHjsonObject` — как [HJSON](https://hjson.github.io/)
-		* `stringQueryFormated` — как [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* `stringQueryFormatted` — как [Query string](https://en.wikipedia.org/wiki/Query_string)
 	* Значение по умолчанию: —
 	
 * `removeEmptyPlaceholders`
