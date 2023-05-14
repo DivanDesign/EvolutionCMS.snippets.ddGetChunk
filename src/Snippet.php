@@ -41,7 +41,7 @@ class Snippet extends \DDTools\Snippet {
 	
 	/**
 	 * run
-	 * @version 1.0 (2021-03-23)
+	 * @version 1.0.1 (2023-05-14)
 	 * 
 	 * @return {string}
 	 */
@@ -50,7 +50,7 @@ class Snippet extends \DDTools\Snippet {
 		
 		if (!empty($this->params->name)){
 			//Получаем чанк
-			$result = \ddTools::$modx->getTpl($this->params->name);
+			$result = \ddTools::getTpl($this->params->name);
 			
 			//Парсим
 			$result = \ddTools::parseText([
