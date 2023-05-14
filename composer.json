@@ -19,6 +19,9 @@
 		"parse chunk"
 	],
 	"homepage": "https://code.divandesign.ru/modx/ddgetchunk",
+	"support": {
+		"chat": "https://t.me/dd_code"
+	},
 	"authors": [
 		{
 			"name": "Ilyas Ronef",
