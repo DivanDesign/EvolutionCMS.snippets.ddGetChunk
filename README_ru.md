@@ -127,6 +127,7 @@
 * [Home page](https://code.divandesign.biz/modx/ddgetchunk)
 * [Telegram chat](https://t.me/dd_code)
 * [Packagist](https://packagist.org/packages/dd/evolutioncms-snippets-ddgetchunk)
+* [GitHub](https://github.com/DivanDesign/EvolutionCMS.snippets.ddGetChunk)
 
 
 <link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
