@@ -23,13 +23,13 @@ Also it can:
 Just run the following PHP code in your sources or [Console](https://github.com/vanchelo/MODX-Evolution-Ajax-Console):
 
 ```php
-//Include (MODX)EvolutionCMS.libraries.ddInstaller
+// Include (MODX)EvolutionCMS.libraries.ddInstaller
 require_once(
 	$modx->getConfig('base_path') .
 	'assets/libs/ddInstaller/require.php'
 );
 
-//Install (MODX)EvolutionCMS.snippets.ddGetChunk
+// Install (MODX)EvolutionCMS.snippets.ddGetChunk
 \DDInstaller::install([
 	'url' => 'https://github.com/DivanDesign/EvolutionCMS.snippets.ddGetChunk',
 	'type' => 'snippet'
@@ -106,7 +106,7 @@ _All examples are written using [HJSON](https://hjson.github.io/) for the `place
 <script>
 	var form = '[[ddGetChunk? &name=`someForm` &escapeResultForJS=`1`]]';
 	
-	//Insert form to page
+	// Insert form to page
 	$('body').append(form);
 </script>
 ```

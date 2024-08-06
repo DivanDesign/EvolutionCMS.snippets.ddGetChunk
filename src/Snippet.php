@@ -6,7 +6,7 @@ class Snippet extends \DDTools\Snippet {
 		$version = '2.4.0',
 		
 		$params = [
-			//Defaults
+			// Defaults
 			'name' => '',
 			'placeholders' => [],
 			'removeEmptyPlaceholders' => false,
@@ -24,7 +24,7 @@ class Snippet extends \DDTools\Snippet {
 		
 	/**
 	 * run
-	 * @version 1.0.1 (2023-05-14)
+	 * @version 1.0.2 (2024-08-06)
 	 * 
 	 * @return {string}
 	 */
@@ -32,21 +32,21 @@ class Snippet extends \DDTools\Snippet {
 		$result = '';
 		
 		if (!empty($this->params->name)){
-			//Получаем чанк
+			// Получаем чанк
 			$result = \ddTools::getTpl($this->params->name);
 			
-			//Парсим
+			// Парсим
 			$result = \ddTools::parseText([
 				'text' => $result,
 				'data' => $this->params->placeholders,
-				//Удаляем пустые плэйсхолдеры, если нужно
+				// Удаляем пустые плэйсхолдеры, если нужно
 				'removeEmptyPlaceholders' => $this->params->removeEmptyPlaceholders
 			]);
 			
-			//Окончательно парсим
+			// Окончательно парсим
 			$result = \ddTools::parseSource($result);
 			
-			//Экранируем сиволы, если нужно
+			// Экранируем сиволы, если нужно
 			if ($this->params->escapeResultForJS){
 				$result = \ddTools::escapeForJS($result);
 			}
